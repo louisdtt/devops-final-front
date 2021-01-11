@@ -1,0 +1,23 @@
+version: 2.1
+workflows:
+  version: 2
+  devopsTP1:
+    jobs:
+      - build
+jobs:
+  build:
+    docker: &config
+      - image: cimg/node:12.18.4
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-v1-dependencies-{{ checksum "yarn.lock" }}
+      - run: yarn install
+      - save_cache:
+          key: npm-v1-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
