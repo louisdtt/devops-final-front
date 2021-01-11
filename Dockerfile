@@ -1,9 +1,9 @@
 FROM node:dubnium
 
-WORKDIR /nest-server
+WORKDIR /devops-final-front
 
 COPY . .
 
 RUN yarn install
 
-CMD ["yarn", "start"]
+CMD ["yarn", "serve"]
