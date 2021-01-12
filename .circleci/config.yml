@@ -4,6 +4,7 @@ workflows:
   devops-final-front:
     jobs:
       - build
+      - docker-build-and-push
 jobs:
   build:
     docker: &config
