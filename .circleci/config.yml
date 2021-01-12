@@ -9,7 +9,7 @@ jobs:
     docker: &config
       - image: cimg/node:12.18.4
         auth:
-          username: §DOCKER_HUB_USER_ID
+          username: $DOCKER_HUB_USER_ID
           password: $DOCKER_HUB_PWD
     steps:
       - checkout
