@@ -1,7 +1,7 @@
 version: 2.1
 workflows:
   version: 2
-  devopsTP1:
+  devops-final-front:
     jobs:
       - build
 jobs:
@@ -9,8 +9,8 @@ jobs:
     docker: &config
       - image: cimg/node:12.18.4
         auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
+          username: §DOCKER_HUB_USER_ID
+          password: $DOCKER_HUB_PWD
     steps:
       - checkout
       - restore_cache:
